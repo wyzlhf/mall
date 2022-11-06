@@ -1,0 +1,80 @@
+syntax = "v1"
+
+info(
+	title: "Order API"
+	desc: "mall微服务项目Order服务的api服务部分"
+	author: "haifeng"
+	email: "haifeng0130@126.com"
+	version: "V1"
+)
+type (
+	CreateRequest {
+		Uid    uint64 `json:"uid"`
+		Pid    uint64 `json:"pid"`
+		Amount uint64 `json:"amount"`
+		Status uint64 `json:"status"`
+	}
+	CreateResponse {
+		Id uint64 `json:"id"`
+	}
+
+	UpdateRequest {
+		Id     uint64 `json:"id"`
+		Uid    uint64 `json:"uid"`
+		Pid    uint64 `json:"pid"`
+		Amount uint64 `json:"amount"`
+		Status uint64 `json:"status"`
+	}
+	UpdateResponse {
+	}
+
+	RemoveRequest {
+		Id uint64 `json:"id"`
+	}
+	RemoveResponse {
+	}
+
+	DetailRequest {
+		Id uint64 `json:"id"`
+	}
+	DetailResponse {
+		Id     uint64 `json:"id"`
+		Uid    uint64 `json:"uid"`
+		Pid    uint64 `json:"pid"`
+		Amount uint64 `json:"amount"`
+		Status uint64 `json:"status"`
+	}
+
+	ListRequest {
+		Uid uint64 `json:"uid"`
+	}
+	OrderResponse {
+		Id     uint64 `json:"id"`
+		Uid    uint64 `json:"uid"`
+		Pid    uint64 `json:"pid"`
+		Amount uint64 `json:"amount"`
+		Status uint64 `json:"status"`
+	}
+	OrdersResponse {
+		Orders []*OrderResponse `json:"orders"`
+	}
+)
+@server(
+	jwt: Auth
+)
+service Order {
+	@handler Create
+	post /api/order/create (CreateRequest) returns (CreateResponse)
+	
+	@handler Update
+	post /api/order/update (UpdateRequest) returns (UpdateResponse)
+	
+	@handler Remove
+	post /api/order/remove (RemoveRequest) returns (RemoveResponse)
+	
+	@handler Detail
+	post /api/order/detail (DetailRequest) returns (DetailResponse)
+	
+	@handler List
+	post /api/order/list (ListRequest) returns (OrdersResponse)
+}

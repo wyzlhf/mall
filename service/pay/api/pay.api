@@ -1,0 +1,54 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "type desc here"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
+)
+type (
+	CreateReuest {
+		Uid    uint64 `json:"uid"`
+		Oid    uint64 `json:"oid"`
+		Amount uint64 `json:"amount"`
+	}
+	CreateResponse {
+		Id uint64 `json:"id"`
+	}
+
+	DetailRequest {
+		Id uint64 `json:"id"`
+	}
+	DetailResponse {
+		Id     uint64 `json:"id"`
+		Uid    uint64 `json:"uid"`
+		Oid    uint64 `json:"oid"`
+		Amount uint64 `json:"amount"`
+		Source uint64 `json:"source"`
+		Status uint64 `json:"status"`
+	}
+	CallbackRequest {
+		Id     uint64 `json:"id"`
+		Uid    uint64 `json:"uid"`
+		Oid    uint64 `json:"oid"`
+		Amount uint64 `json:"amount"`
+		Source uint64 `json:"source"`
+		Status uint64 `json:"status"`
+	}
+	CallbackResponse {
+	}
+)
+@server(
+	jwt: Auth
+)
+service Pay {
+	@handler Create
+	post /api/pay/create (CreateReuest) returns (CreateResponse)
+	
+	@handler Detail
+	post /api/pay/detail (DetailRequest) returns (DetailResponse)
+	
+	@handler Callback
+	post /api/pay/callback (CallbackRequest) returns (CallbackResponse)
+}

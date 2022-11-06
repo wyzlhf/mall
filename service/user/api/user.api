@@ -1,0 +1,51 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "type desc here"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
+)
+type (
+	LoginRequest {
+		Mobile   string `json:"mobile"`
+		Password string `json:"password"`
+	}
+	LoginResponse {
+		AccessToken  string `json:"accessToken"`
+		AccessExpire int64  `json:"accessExpire"`
+	}
+	RegisterRequest {
+		Name     string `json:"name"`
+		Gender   uint64 `json:"gender"`
+		Mobile   string `json:"mobile"`
+		Password string `json:"password"`
+	}
+	RegisterResponse {
+		Id     uint64 `json:"id"`
+		Name   string `json:"name"`
+		Gender uint64 `json:"gender"`
+		Mobile string `json:"mobile"`
+	}
+	UserInfoResponse {
+		Id     uint64 `json:"id"`
+		Name   string `json:"name"`
+		Gender uint64 `json:"gender"`
+		Mobile string `json:"mobile"`
+	}
+)
+service User {
+	@handler Login
+	post /api/user/login (LoginRequest) returns (LoginResponse)
+	@handler Register
+	post /api/user/register (RegisterRequest) returns (RegisterResponse)
+}
+
+@server(
+	jwt: Auth
+)
+service User {
+	@handler UserInfo
+	post /api/user/userinfo () returns (UserInfoResponse) //此处和proto不一样，到时候看看是如何实现的，为什么没有传入ID
+}

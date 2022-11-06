@@ -1,0 +1,24 @@
+mkdir service common
+
+cd service
+
+mkdir user\api
+mkdir user\rpc
+mkdir user\model
+mkdir product\api
+mkdir product\rpc
+mkdir product\model
+mkdir order\api
+mkdir order\rpc
+mkdir order\model
+mkdir pay\api
+mkdir pay\rpc
+mkdir pay\model
+
+go run user.go -f etc/user.yaml
+
+go run product.go -f etc/product.yaml
+
+go run order.go -f etc/order.yaml
+
+go run pay.go -f etc/pay.yaml
