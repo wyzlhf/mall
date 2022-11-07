@@ -1,0 +1,5 @@
+goctl model mysql ddl -src ./service/pay/model/pay.sql -dir ./service/pay/model -c
+
+goctl api go -api ./service/pay/api/pay.api -dir ./service/pay/api
+
+goctl rpc protoc ./service/pay/rpc/pay.proto --go_out=./service/pay/rpc/types --go-grpc_out=./service/pay/rpc/types --zrpc_out=./service/pay/rpc

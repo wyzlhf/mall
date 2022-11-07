@@ -1,0 +1,5 @@
+goctl model mysql ddl -src ./service/order/model/order.sql -dir ./service/order/model -c
+
+goctl api go -api ./service/order/api/order.api -dir ./service/order/api
+
+goctl rpc protoc ./service/order/rpc/order.proto --go_out=./service/order/rpc/types --go-grpc_out=./service/order/rpc/types --zrpc_out=./service/order/rpc

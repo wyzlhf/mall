@@ -1,0 +1,5 @@
+goctl model mysql ddl -src ./service/user/model/user.sql -dir ./service/user/model -c
+
+goctl api go -api ./service/user/api/user.api -dir ./service/user/api
+
+goctl rpc protoc ./service/user/rpc/user.proto --go_out=./service/user/rpc/types --go-grpc_out=./service/user/rpc/types --zrpc_out=./service/user/rpc
