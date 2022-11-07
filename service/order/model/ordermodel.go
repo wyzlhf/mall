@@ -1,8 +1,9 @@
 package model
 
 import (
-	"fmt"
 	"context"
+	"database/sql"
+	"fmt"
 	"github.com/zeromicro/go-zero/core/stores/cache"
 	"github.com/zeromicro/go-zero/core/stores/sqlc"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
@@ -15,7 +16,10 @@ type (
 	// and implement the added methods in customOrderModel.
 	OrderModel interface {
 		orderModel
-		FindAllByUid(ctx context.Context,uid uint64)([]*Order,error)
+		FindAllByUid(ctx context.Context, uid uint64) ([]*Order, error)
+		FindOneByUid(ctx context.Context, uid uint64) (*Order, error)
+		TxInsert(ctx context.Context, tx *sql.Tx, data *Order) (sql.Result, error)
+		TxUpdate(ctx context.Context, tx *sql.Tx, data *Order) error
 	}
 
 	customOrderModel struct {
@@ -43,4 +47,30 @@ func (m *customOrderModel) FindAllByUid(ctx context.Context, uid uint64) ([]*Ord
 	default:
 		return nil, err
 	}
+}
+func (m *defaultOrderModel) FindOneByUid(ctx context.Context, uid uint64) (*Order, error) {
+	var resp Order
+	query := fmt.Sprintf("select %s from %s where `uid`=? order by create_time desc limit 1", orderRows, m.table)
+	err := m.QueryRowsNoCacheCtx(ctx, &resp, query, uid)
+	switch err {
+	case nil:
+		return &resp, nil
+	case sqlc.ErrNotFound:
+		return nil, ErrNotFound
+	default:
+		return nil, err
+	}
+}
+func (m *defaultOrderModel) TxInsert(ctx context.Context, tx *sql.Tx, data *Order) (sql.Result, error) {
+	query := fmt.Sprintf("insert int %s (%s) values(?,?,?,?)", m.table, orderRowsExpectAutoSet)
+	ret, err := tx.ExecContext(ctx, query, data.Uid, data.Pid, data.Amount, data.Status)
+	return ret, err
+}
+func (m *defaultOrderModel) TxUpdate(ctx context.Context, tx *sql.Tx, data *Order) error {
+	productIdKey := fmt.Sprintf("%s%v", cacheOrderIdPrefix, data.Id)
+	_, err := m.Exec(func(conn sqlx.SqlConn) (sql.Result, error) {
+		query := fmt.Sprintf("update %s set %s where `id`=?", m.table, orderRowsWithPlaceHolder)
+		return tx.ExecContext(ctx, query, data.Uid, data.Pid, data.Amount, data.Status, data.Id)
+	}, productIdKey)
+	return err
 }
