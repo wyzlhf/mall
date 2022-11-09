@@ -28,6 +28,7 @@ type OrderClient interface {
 	Detail(ctx context.Context, in *DetailRequest, opts ...grpc.CallOption) (*DetailResponse, error)
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 	Paid(ctx context.Context, in *PaidRequest, opts ...grpc.CallOption) (*PaidResponse, error)
+	CreateRevert(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 }
 
 type orderClient struct {
@@ -92,6 +93,15 @@ func (c *orderClient) Paid(ctx context.Context, in *PaidRequest, opts ...grpc.Ca
 	return out, nil
 }
 
+func (c *orderClient) CreateRevert(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, "/order.Order/CreateRevert", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // OrderServer is the server API for Order service.
 // All implementations must embed UnimplementedOrderServer
 // for forward compatibility
@@ -102,6 +112,7 @@ type OrderServer interface {
 	Detail(context.Context, *DetailRequest) (*DetailResponse, error)
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Paid(context.Context, *PaidRequest) (*PaidResponse, error)
+	CreateRevert(context.Context, *CreateRequest) (*CreateResponse, error)
 	mustEmbedUnimplementedOrderServer()
 }
 
@@ -126,6 +137,9 @@ func (UnimplementedOrderServer) List(context.Context, *ListRequest) (*ListRespon
 }
 func (UnimplementedOrderServer) Paid(context.Context, *PaidRequest) (*PaidResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Paid not implemented")
+}
+func (UnimplementedOrderServer) CreateRevert(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateRevert not implemented")
 }
 func (UnimplementedOrderServer) mustEmbedUnimplementedOrderServer() {}
 
@@ -248,6 +262,24 @@ func _Order_Paid_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Order_CreateRevert_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrderServer).CreateRevert(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/order.Order/CreateRevert",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrderServer).CreateRevert(ctx, req.(*CreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Order_ServiceDesc is the grpc.ServiceDesc for Order service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -278,6 +310,10 @@ var Order_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Paid",
 			Handler:    _Order_Paid_Handler,
+		},
+		{
+			MethodName: "CreateRevert",
+			Handler:    _Order_CreateRevert_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

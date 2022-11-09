@@ -59,4 +59,6 @@ service Order{
     rpc Detail(DetailRequest)returns(DetailResponse);
     rpc List(ListRequest)returns(ListResponse);
     rpc Paid(PaidRequest)returns(PaidResponse);
+
+    rpc CreateRevert(CreateRequest)returns(CreateResponse);
 }

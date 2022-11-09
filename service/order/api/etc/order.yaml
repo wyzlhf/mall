@@ -15,3 +15,8 @@ OrderRpc:
     Hosts:
     - 127.0.0.1:2379
     Key: order.rpc
+ProductRpc:
+  Etcd:
+    Hosts:
+    - etcd:2379
+    Key: product.rpc
