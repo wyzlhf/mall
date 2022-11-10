@@ -5,13 +5,12 @@ import (
 	"mall/service/order/api/internal/config"
 	"mall/service/order/rpc/orderclient"
 	"mall/service/product/rpc/productclient"
-	"mall/service/product/rpc/types/product"
 )
 
 type ServiceContext struct {
 	Config     config.Config
 	OrderRpc   orderclient.Order
-	ProductRpc product.ProductClient
+	ProductRpc productclient.Product
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {

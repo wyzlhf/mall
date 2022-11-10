@@ -136,13 +136,19 @@ github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f h1:lO4WD4F/r
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f/go.mod h1:cuUVRXasLTGF7a8hSLbxyZXjz+1KgoB3wDUb6vlszIc=
 github.com/docker/spdystream v0.0.0-20160310174837-449fdfce4d96/go.mod h1:Qh8CwZgvJUkLughtfhJv5dyTYa91l1fOUCrgjqmcifM=
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
+github.com/dtm-labs/driver-gozero v0.0.5 h1:TAFr5NRomjY16PcgoQZM4aO++nrBA2Yh9QNCZNqVU6Y=
+github.com/dtm-labs/driver-gozero v0.0.5/go.mod h1:UKrFyPpnI2jOSKb3Nu4cg853nqzW2+aWMIro7SdJonM=
 github.com/dtm-labs/driver-gozero v0.0.7 h1:wMsMUZGZTDk62hrl6hiXiW+kh+KJ5cs+wmLjp4p0Jy4=
 github.com/dtm-labs/driver-gozero v0.0.7/go.mod h1:LqfYvawFWhMy6gcEA/u/vlMrfl2dKEH0W22r+IBsXiQ=
 github.com/dtm-labs/dtmcli v1.15.0 h1:kqiV47I9Am/0QuzX11cGTPp/Z2AcOaRDXU7E7SZWYNk=
 github.com/dtm-labs/dtmcli v1.15.0/go.mod h1:otEdxUwM5FIKlCLmg5hL5+Z539DmCK2YJ0G4WNsP6Tw=
+github.com/dtm-labs/dtmdriver v0.0.1/go.mod h1:fLiEeD2BPwM9Yq96TfcP9KpbTwFsn5nTxa/PP0jmFuk=
+github.com/dtm-labs/dtmdriver v0.0.3 h1:9iAtvXKR3lJXQ7dvS87e4xdtmqkzN+ofek+CF9AvUSY=
 github.com/dtm-labs/dtmdriver v0.0.3/go.mod h1:fLiEeD2BPwM9Yq96TfcP9KpbTwFsn5nTxa/PP0jmFuk=
 github.com/dtm-labs/dtmdriver v0.0.6 h1:Iz6xnO+hE2TKDHI2TX4BKCzMtgXYgeQFBEGvvaNhbs8=
 github.com/dtm-labs/dtmdriver v0.0.6/go.mod h1:V5E1uFsExb6Do32ezpB8bMX6be+izLhkcboniLP5shU=
+github.com/dtm-labs/dtmdriver-gozero v0.0.5 h1:cMBkURDRPcb1Y6/kY+x/yxYA8KWMG+fkK6b+cs4WXKo=
+github.com/dtm-labs/dtmdriver-gozero v0.0.5/go.mod h1:U4nIisQ5SBZrajp7ky1Bi0eBxPiGqVy+tOs47beobY4=
 github.com/dtm-labs/dtmdriver-gozero v0.0.7 h1:EmbP0tFjczBfk+FJaPbK2Ikzyb3V5f0rn2JH1eHCVRo=
 github.com/dtm-labs/dtmdriver-gozero v0.0.7/go.mod h1:OLz0vfGkWTWK24V1Ed69lWRqu5ROXNhQM7p/oRxgdgs=
 github.com/dtm-labs/dtmgrpc v1.15.0 h1:ZLSbCa/83J4LUR2A/h1h68D6EPuFfDkiUTZ5btKlJvg=
@@ -707,6 +713,7 @@ github.com/yuin/gopher-lua v0.0.0-20210529063254-f4c35e4016d9/go.mod h1:E1AXubJB
 github.com/yusufpapurcu/wmi v1.2.2/go.mod h1:SBZ9tNy3G9/m5Oi98Zks0QjeHVDvuK0qfxQmPyzfmi0=
 github.com/zeromicro/go-zero v1.3.0/go.mod h1:Hy4o1VFAt32lXaQMbaBhoFeZjA/rJqJ4PTGNdGsURcc=
 github.com/zeromicro/go-zero v1.3.2/go.mod h1:DEj3Fwj1Ui1ltsgf6YqwTL9nD4+tYzIRX0c1pWtQo1E=
+github.com/zeromicro/go-zero v1.3.3/go.mod h1:LwuYc2V04ZHhWPWGJYQ+kJ5DT4QSkeaZGqXiQcpkfks=
 github.com/zeromicro/go-zero v1.3.4/go.mod h1:nEU/ITZSmxRxvr/JmSoJ48MNV62UpY6bqJz9Voba7Yw=
 github.com/zeromicro/go-zero v1.3.5/go.mod h1:wh4o794b7Ul3W0k35Pw9nc3iB4O0OpaQTMQz/PJc1bc=
 github.com/zeromicro/go-zero v1.4.2 h1:1P9TuzxONqxQG3Bvpk7r7vPOGEnfXn3lTX/4W5Y2GlQ=
@@ -733,6 +740,7 @@ go.etcd.io/etcd/client/v3 v3.5.4/go.mod h1:ZaRkVgBZC+L+dLCjTcF1hRXpgZXQPOvnA/Ak/
 go.etcd.io/etcd/client/v3 v3.5.5 h1:q++2WTJbUgpQu4B6hCuT7VkdwaTP7Qz6Daak3WzbrlI=
 go.etcd.io/etcd/client/v3 v3.5.5/go.mod h1:aApjR4WGlSumpnJ2kloS75h6aHUmAyaPLjHMxpc7E7c=
 go.mongodb.org/mongo-driver v1.8.3/go.mod h1:0sQWfOeY63QTntERDJJ/0SuKK0T1uVSgKCuAROlKEPY=
+go.mongodb.org/mongo-driver v1.9.0/go.mod h1:0sQWfOeY63QTntERDJJ/0SuKK0T1uVSgKCuAROlKEPY=
 go.mongodb.org/mongo-driver v1.9.1/go.mod h1:0sQWfOeY63QTntERDJJ/0SuKK0T1uVSgKCuAROlKEPY=
 go.mongodb.org/mongo-driver v1.10.3/go.mod h1:z4XpeoU6w+9Vht+jAFyLgVrD+jGSQQe0+CBWFHNiHt8=
 go.mongodb.org/mongo-driver v1.11.0 h1:FZKhBSTydeuffHj9CBjXlR8vQLee1cQyTWYPA6/tqiE=
@@ -1007,6 +1015,7 @@ golang.org/x/sys v0.0.0-20220114195835-da31bd327af9/go.mod h1:oPkhp1MJrh7nUepCBc
 golang.org/x/sys v0.0.0-20220128215802-99c3d69c2c27/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220412211240-33da011f77ad/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.0.0-20220422013727-9388b58f7150/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220429233432-b5fbb4746d32/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220503163025-988cb79eb6c6/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
@@ -1188,6 +1197,7 @@ google.golang.org/grpc v1.42.0/go.mod h1:k+4IHHFw41K8+bbowsex27ge2rCb65oeWqe4jJ5
 google.golang.org/grpc v1.43.0/go.mod h1:k+4IHHFw41K8+bbowsex27ge2rCb65oeWqe4jJ590SU=
 google.golang.org/grpc v1.44.0/go.mod h1:k+4IHHFw41K8+bbowsex27ge2rCb65oeWqe4jJ590SU=
 google.golang.org/grpc v1.45.0/go.mod h1:lN7owxKUQEqMfSyQikvvk5tf/6zMPsrK+ONuO11+0rQ=
+google.golang.org/grpc v1.46.0/go.mod h1:vN9eftEi1UMyUsIF80+uQXhHjbXYbm0uXoFCACuMGWk=
 google.golang.org/grpc v1.46.2/go.mod h1:vN9eftEi1UMyUsIF80+uQXhHjbXYbm0uXoFCACuMGWk=
 google.golang.org/grpc v1.47.0/go.mod h1:vN9eftEi1UMyUsIF80+uQXhHjbXYbm0uXoFCACuMGWk=
 google.golang.org/grpc v1.48.0/go.mod h1:vN9eftEi1UMyUsIF80+uQXhHjbXYbm0uXoFCACuMGWk=

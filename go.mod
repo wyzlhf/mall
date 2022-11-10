@@ -3,7 +3,7 @@ module mall
 go 1.19
 
 require (
-	github.com/dtm-labs/driver-gozero v0.0.7
+	github.com/dtm-labs/driver-gozero v0.0.5
 	github.com/dtm-labs/dtmcli v1.15.0
 	github.com/dtm-labs/dtmgrpc v1.15.0
 	github.com/golang-jwt/jwt/v4 v4.4.2
@@ -25,8 +25,8 @@ require (
 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
-	github.com/dtm-labs/dtmdriver v0.0.6 // indirect
-	github.com/dtm-labs/dtmdriver-gozero v0.0.7 // indirect
+	github.com/dtm-labs/dtmdriver v0.0.3 // indirect
+	github.com/dtm-labs/dtmdriver-gozero v0.0.5 // indirect
 	github.com/emicklei/go-restful/v3 v3.9.0 // indirect
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/go-errors/errors v1.4.2 // indirect
